@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Movement : MonoBehaviour {
 
@@ -10,20 +9,31 @@ public class Movement : MonoBehaviour {
     public GameObject lastCylinder;
     private bool isSafe = true;
     private GameObject instantiated;
-    public GameObject enemy;
+    public GameObject[] enemies;
     public float waittime;
     float timer;
+    float multiplier = 1f;
+    public UnityEngine.UI.Text text;
+    public int score;
+    private bool hasBall;
+    private float startTime;
+    public Material mat;
+    private Color[] colors = { Color.black, Color.blue, Color.cyan, Color.clear, Color.red, Color.yellow };
 
-
-    // Use this for initialization
     void Start()
     {
+        score = 0;
+        hasBall = false;
+        startTime = Time.time;
         position = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        score = (int)(Time.time - startTime);
+        text.text =  "Score: " + score.ToString();
+
         timer += Time.deltaTime;
         if (timer > waittime)
         {
@@ -34,6 +44,8 @@ public class Movement : MonoBehaviour {
 
     void FixedUpdate()
     {
+        mat.color = colors[(int)Random.Range(0f, colors.Length)];
+
         transform.position = position;
 
         position.z += Time.deltaTime * speed;
@@ -44,14 +56,19 @@ public class Movement : MonoBehaviour {
 
     void SpawnEnemy()
     {
-        Vector3 newPos = new Vector3(transform.position.x, transform.position.y + Random.Range(-1f, 1f), transform.position.z + 5f);
-        Instantiate(enemy, newPos, transform.rotation);
+        //GameObject enemy = enemies[Random.Range(0, enemies.Length)];
+        multiplier += 1;
+        foreach (GameObject enemy in enemies)
+        {
+            Vector3 newPos = new Vector3(transform.position.x + Random.Range(-0.8f, 0.8f), transform.position.y + Random.Range(-0.8f, 0.8f), transform.position.z + 5f);
+            Instantiate(enemy, newPos, enemy.transform.rotation);
+        }      
     }
 
 
     void OnTriggerEnter(Collider other)
     {
-        
+        Debug.Log("Collided!!");
         if (other.tag.Equals("spawn"))
         {
             Vector3 newPos = new Vector3(lastCylinder.transform.position.x, lastCylinder.transform.position.y, lastCylinder.transform.position.z + (5.31f * 2));
@@ -64,6 +81,14 @@ public class Movement : MonoBehaviour {
         }
         if (other.tag.Equals("enemy"))
         {
+            if (score < 15)
+            {
+                text.text = "You got " + score + " points.. Scrub score..";
+            } else
+            {
+                text.text = "You got " + score + " points.. Average score..";
+            }
+            
             Destroy(this);
         }
     }
