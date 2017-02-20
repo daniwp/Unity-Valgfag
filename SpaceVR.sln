@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{33B78A30-0D7E-8EEA-1A4E-365F820ACFBE}") = "SpaceVR", "Assembly-CSharp-firstpass.csproj", "{47CA2F08-CB42-E152-07C4-5C269DBD7020}"
+EndProject
+Project("{33B78A30-0D7E-8EEA-1A4E-365F820ACFBE}") = "SpaceVR", "Assembly-CSharp.csproj", "{57462940-36BD-D9C9-52D2-7E9701BD5C05}"
+EndProject
+Project("{33B78A30-0D7E-8EEA-1A4E-365F820ACFBE}") = "SpaceVR", "Assembly-CSharp-Editor.csproj", "{6222C492-4706-CC34-A163-185997166C2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47CA2F08-CB42-E152-07C4-5C269DBD7020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47CA2F08-CB42-E152-07C4-5C269DBD7020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47CA2F08-CB42-E152-07C4-5C269DBD7020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47CA2F08-CB42-E152-07C4-5C269DBD7020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57462940-36BD-D9C9-52D2-7E9701BD5C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57462940-36BD-D9C9-52D2-7E9701BD5C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57462940-36BD-D9C9-52D2-7E9701BD5C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57462940-36BD-D9C9-52D2-7E9701BD5C05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6222C492-4706-CC34-A163-185997166C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6222C492-4706-CC34-A163-185997166C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6222C492-4706-CC34-A163-185997166C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6222C492-4706-CC34-A163-185997166C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
